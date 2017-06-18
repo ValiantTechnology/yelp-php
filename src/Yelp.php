@@ -4,6 +4,7 @@
  */
 Namespace TVW;
 use Httpful;
+use phpDocumentor\Reflection\Types\Self_;
 
 /**
  * Class Yelp
@@ -364,7 +365,7 @@ class Yelp{
      * @param   boolean     $encode     set to true to urlencode() string (optional)
      * @return  string                  encoded string
      */
-    private function urlEncoded($keypairs, $encode = false)
+    private static function urlEncoded($keypairs, $encode = false)
     {
         $urlEncoded = "";
 
