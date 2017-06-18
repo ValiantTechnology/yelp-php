@@ -114,19 +114,19 @@ class Yelp{
      * Tokens are valid for 180 days, so caching them is good idea.
      * @see https://www.yelp.com/developers/documentation/v3/authentication
      *
-     * @param   string      $id         Yelp App Client ID
-     * @param   string      $secret     Yelp App Client Secret
+     * @param   string      $appId         Yelp App Client ID
+     * @param   string      $appSecret     Yelp App Client Secret
      * @return  object                  Httpful response object body
      * @throws  \Exception              Contains HTTP error code returned by Httpful
      */
-    public static function bearerRequest($id, $secret)
+    public static function bearerRequest($appId, $appSecret)
     {
         $uri    = self::$apiUri . "/oauth2/token";
 
         $body   = self::urlEncoded([
             "grant_type"    => "client_credentials",
-            "client_id"     => $id,
-            "client_secret" => $secret
+            "client_id"     => $appId,
+            "client_secret" => $appSecret
         ], false);
 
         $response = self::doRequest($uri, $body, "post");
@@ -220,14 +220,14 @@ class Yelp{
      * Business ids may be retrieved by the business, phone and transaction searches.
      * @see https://www.yelp.com/developers/documentation/v3/business
      *
-     * @param   string      $id         Valid Yelp business id
+     * @param   string      $businessId         Valid Yelp business id
      * @param   array       $params     Business detail parameters
      * @return  object                  Httpful response object body
      * @throws  \Exception              Contains HTTP error code returned by Httpful
      */
-    public function getBusiness($id, $params = null)
+    public function getBusiness($businessId, $params = null)
     {
-        $uri = self::$apiUri . "/v3/businesses/{$id}";
+        $uri = self::$apiUri . "/v3/businesses/{$businessId}";
 
         if(is_array($params)) {
             // merge search parameter defaults with supplied options
@@ -248,14 +248,14 @@ class Yelp{
      * Business ids may be retrieved by the business, phone and transaction searches.
      * @see https://www.yelp.com/developers/documentation/v3/business_reviews
      *
-     * @param   string      $id         Valid Yelp business id
+     * @param   string      $businessId         Valid Yelp business id
      * @param   array       $params     Business review parameters
      * @return  object                  Httpful response object body
      * @throws  \Exception              Contains HTTP error code returned by Httpful
      */
-    public function getReviews($id, $params = null)
+    public function getReviews($businessId, $params = null)
     {
-        $uri = self::$apiUri . "/v3/businesses/{$id}/reviews";
+        $uri = self::$apiUri . "/v3/businesses/{$businessId}/reviews";
 
         if(is_array($params)) {
             // merge search parameter defaults with supplied options
@@ -344,7 +344,7 @@ class Yelp{
      * @param   boolean     $encode     set to true to urlencode() string (optional)
      * @return  string                  encoded string
      */
-    private static function urlEncoded($keypairs, $encode = false)
+    private static function urlEncoded($keypairs, $encode = null)
     {
         $urlEncoded = "";
 
