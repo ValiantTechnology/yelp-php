@@ -1,7 +1,7 @@
 # Yelp Fusion API Wrapper
 _A PHP Client wrapper for Yelp's Fusion API_
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Twitter Follow](https://img.shields.io/twitter/follow/thevaliantway.svg?style=social&label=Follow)]()
+[![Build Status](https://travis-ci.org/ValiantTechnology/yelp-php.svg?branch=master)](https://travis-ci.org/ValiantTechnology/yelp-php) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Twitter Follow](https://img.shields.io/twitter/follow/thevaliantway.svg?style=social&label=Follow)]()
 
 Yelp's [Fusion API](https://www.yelp.com/developers/documentation/v3) allows you to get the best local business information and user reviews of over million businesses in 32 countries. 
 
