@@ -8,11 +8,8 @@ class YelpTest extends PHPUnit_Framework_TestCase
     protected $client_secret;
 
     protected function setUp() {
-        $this->client_id = $_ENV["client_id"];
-        $this->client_secret = $_ENV["client_secret"];
-print "***";
-        var_dump($_ENV);
-        print "***\n";
+        $this->client_id = getenv("client_id");
+        $this->client_secret = getenv("client_secret");
     }
 
     /**
