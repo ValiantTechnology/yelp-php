@@ -41,7 +41,7 @@ $yelpFusion = new Yelp($apiToken);
  * searchBusiness($params)
  * Searches for businesses based on provided parameters
  */
-//$result = $yelpFusion->searchBusiness($testParams);
+$result = $yelpFusion->searchBusiness($testParams);
 
 /**
  * searchPhone($phone)
@@ -65,7 +65,7 @@ $yelpFusion = new Yelp($apiToken);
  * getReviews($id, $params = null)
  * Retrieves up to 3 business reviews
  */
-$result = $yelpFusion->getReviews("blue-hill-new-york");
+//$result = $yelpFusion->getReviews("blue-hill-new-york");
 
 /**
  * autoComplete($params)
