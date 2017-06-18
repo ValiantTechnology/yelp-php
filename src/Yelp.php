@@ -347,7 +347,7 @@ class Yelp{
      * @param   string    $token        api token
      * @return  object               Httpful response object
      */
-    private function doRequest($uri, $payload = null, $method = "get", $bearer = null, $token = null)
+    private static function doRequest($uri, $payload = null, $method = "get", $bearer = null, $token = null)
     {
         $request = Httpful\Request::$method($uri)->contentType("form");
 
