@@ -133,11 +133,15 @@ class Yelp{
 
         $response = self::doRequest($uri, $body, "post");
 
+        if($response->code !== 200) throw new \Exception("API responded with a HTTP status of {$response->code}.");
+
+        return $response->body;
+        /*
         if($response->code == 200){
             return $response->body;
         } else {
             throw new \Exception("API responded with a HTTP status of {$response->code}.");
-        }
+        }*/
     }
 
     /**
@@ -161,11 +165,15 @@ class Yelp{
         $uri            = self::$apiUri . "/v3/businesses/search?$queryString";
         $response       = self::doRequest($uri, "", "get", $this->apiBearer, $this->apiToken);
 
+        if($response->code !== 200) throw new \Exception("API responded with a HTTP status of {$response->code}.");
+
+        return $response->body;
+        /*
         if($response->code == 200){
             return $response->body;
         } else {
             throw new \Exception("API responded with a HTTP status of {$response->code}.");
-        }
+        }*/
     }
 
     /**
@@ -185,11 +193,15 @@ class Yelp{
             $uri            = self::$apiUri . "/v3/businesses/search/phone?$queryString";
             $response       = self::doRequest($uri, "", "get", $this->apiBearer, $this->apiToken);
 
+            if($response->code !== 200) throw new \Exception("API responded with a HTTP status of {$response->code}.");
+
+            return $response->body;
+            /*
             if($response->code == 200){
                 return $response->body;
             } else {
                 throw new \Exception("API responded with a HTTP status of {$response->code}.");
-            }
+            }*/
 
         } else {
             throw new \Exception("$phone is not a valid phone number.");
@@ -218,11 +230,15 @@ class Yelp{
             $uri            = self::$apiUri . "/v3/transactions/$transactionType/search?$queryString";
             $response       = self::doRequest($uri, "", "get", $this->apiBearer, $this->apiToken);
 
+            if($response->code !== 200) throw new \Exception("API responded with a HTTP status of {$response->code}.");
+
+            return $response->body;
+            /*
             if($response->code == 200){
                 return $response->body;
             } else {
                 throw new \Exception("API responded with a HTTP status of {$response->code}.");
-            }
+            }*/
         } else {
             throw new \Exception("Latitude and Longitude are required parameters.");
         }
@@ -253,11 +269,15 @@ class Yelp{
 
         $response = self::doRequest($uri, "", "get", $this->apiBearer, $this->apiToken);
 
+        if($response->code !== 200) throw new \Exception("API responded with a HTTP status of {$response->code}.");
+
+        return $response->body;
+        /*
         if($response->code == 200){
             return $response->body;
         } else {
             throw new \Exception("API responded with a HTTP status of {$response->code}.");
-        }
+        }*/
     }
 
     /**
@@ -283,11 +303,15 @@ class Yelp{
 
         $response = self::doRequest($uri, "", "get", $this->apiBearer, $this->apiToken);
 
+        if($response->code !== 200) throw new \Exception("API responded with a HTTP status of {$response->code}.");
+
+        return $response->body;
+        /*
         if($response->code == 200){
             return $response->body;
         } else {
             throw new \Exception("API responded with a HTTP status of {$response->code}.");
-        }
+        }*/
     }
 
     /**
@@ -310,12 +334,15 @@ class Yelp{
             $uri            = self::$apiUri . "/v3/autocomplete?$queryString";
             $response       = self::doRequest($uri, "", "get", $this->apiBearer, $this->apiToken);
 
+            if($response->code !== 200) throw new \Exception("API responded with a HTTP status of {$response->code}.");
+
+            return $response->body;
+            /*
             if($response->code == 200){
                 return $response->body;
             } else {
                 throw new \Exception("API responded with a HTTP status of {$response->code}.");
-            }
-
+            }*/
         } else {
             throw new \Exception("Text, Latitude and Longitude are required parameters.");
         }
