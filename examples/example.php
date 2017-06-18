@@ -12,7 +12,7 @@ require '../vendor/autoload.php';
  * You must specify a Yelp Fusion API token for this demo
  * see: https://www.yelp.com/developers
 */
-$apiToken = "o2PnoSFoKGIiy-wbaHhnUobjNgKRLWDuXHNSZLobNXwWP3N3xiHzW2CTIU-8jhXvZkc65aes7qt8unGRjczJh_jg8ePw-keuOXxi9BjE1kXqX1g2TPjEqhSM6TQ8WXYx";
+$apiToken = "";
 
 // parameters for example API queries
 $testParams = [

@@ -5,8 +5,12 @@
 use TVW\Yelp;
 require '../vendor/autoload.php';
 
-$id         =  "903XGskK28EgQ-CoMyXDYw";
-$secret     =  "9YiZkTsFvXkUPRaVBQMqQpHMvky7V4szBSBBS2WSKkmZgxmq8gnBwFcUiMGwseI8";
+/**
+ * You must specify a Yelp App ID and Secret for this example
+ * see: https://www.yelp.com/developers
+ */
+$id         =  "";
+$secret     =  "";
 
 try {
     $result = Yelp::bearerRequest($id, $secret);
