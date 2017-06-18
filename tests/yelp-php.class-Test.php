@@ -11,7 +11,7 @@ class YelpTest extends PHPUnit_Framework_TestCase
         $this->client_id = $_ENV["client_id"];
         $this->client_secret = $_ENV["client_secret"];
 
-        print "***" . $this->client_id . "***\n";
+        var_dump($_ENV);
     }
 
     /**
