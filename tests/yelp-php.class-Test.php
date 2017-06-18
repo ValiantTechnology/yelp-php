@@ -1,12 +1,17 @@
 <?php
 class YelpTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Yelp App ID and Secret must be placed in phpunit.xml for tests to work locally.
+     */
     protected $client_id;
     protected $client_secret;
 
     protected function setUp() {
         $this->client_id = $_ENV["client_id"];
         $this->client_secret = $_ENV["client_secret"];
+
+        print "***" . $this->client_id . "***\n";
     }
 
     /**
