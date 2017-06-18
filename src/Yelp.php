@@ -103,12 +103,10 @@ class Yelp{
      */
     function __construct($apiToken, $apiBearer = "Bearer")
     {
-        if($apiToken){
+        if(!$apiToken)
+            throw new \Exception("A token is required to continue.");
             $this->apiToken    = $apiToken;
             $this->apiBearer    = $apiBearer;
-        } else {
-            throw new \Exception("A token is required to continue.");
-        }
     }
 
     /**
@@ -136,12 +134,6 @@ class Yelp{
         if($response->code !== 200) throw new \Exception("API responded with a HTTP status of {$response->code}.");
 
         return $response->body;
-        /*
-        if($response->code == 200){
-            return $response->body;
-        } else {
-            throw new \Exception("API responded with a HTTP status of {$response->code}.");
-        }*/
     }
 
     /**
@@ -168,12 +160,6 @@ class Yelp{
         if($response->code !== 200) throw new \Exception("API responded with a HTTP status of {$response->code}.");
 
         return $response->body;
-        /*
-        if($response->code == 200){
-            return $response->body;
-        } else {
-            throw new \Exception("API responded with a HTTP status of {$response->code}.");
-        }*/
     }
 
     /**
@@ -187,7 +173,8 @@ class Yelp{
      */
     public function searchPhone($phone)
     {
-        if(preg_match("/\+[0-9]{11}/", $phone)){
+        if(!preg_match("/\+[0-9]{11}/", $phone))
+            throw new \Exception("$phone is not a valid phone number.");
 
             $queryString    = "phone=$phone";
             $uri            = self::$apiUri . "/v3/businesses/search/phone?$queryString";
@@ -196,16 +183,6 @@ class Yelp{
             if($response->code !== 200) throw new \Exception("API responded with a HTTP status of {$response->code}.");
 
             return $response->body;
-            /*
-            if($response->code == 200){
-                return $response->body;
-            } else {
-                throw new \Exception("API responded with a HTTP status of {$response->code}.");
-            }*/
-
-        } else {
-            throw new \Exception("$phone is not a valid phone number.");
-        }
     }
 
     /**
@@ -221,29 +198,21 @@ class Yelp{
     {
 
         // merge search parameter defaults with supplied options
-        if($params){
-            $keyPairs       = $this->mergeParams($this->transactionDefaults, $params);
-
-            // build querystring containing only populated key/value pairs
-            $queryString    = self::urlEncoded($keyPairs, false);
-
-            $uri            = self::$apiUri . "/v3/transactions/$transactionType/search?$queryString";
-            $response       = self::doRequest($uri, "", "get", $this->apiBearer, $this->apiToken);
-
-            if($response->code !== 200) throw new \Exception("API responded with a HTTP status of {$response->code}.");
-
-            return $response->body;
-            /*
-            if($response->code == 200){
-                return $response->body;
-            } else {
-                throw new \Exception("API responded with a HTTP status of {$response->code}.");
-            }*/
-        } else {
+        if(!$params)
             throw new \Exception("Latitude and Longitude are required parameters.");
-        }
 
+        $keyPairs       = $this->mergeParams($this->transactionDefaults, $params);
 
+        // build querystring containing only populated key/value pairs
+        $queryString    = self::urlEncoded($keyPairs, false);
+
+        $uri            = self::$apiUri . "/v3/transactions/$transactionType/search?$queryString";
+        $response       = self::doRequest($uri, "", "get", $this->apiBearer, $this->apiToken);
+
+        if($response->code !== 200)
+            throw new \Exception("API responded with a HTTP status of {$response->code}.");
+
+        return $response->body;
     }
 
     /**
@@ -272,12 +241,6 @@ class Yelp{
         if($response->code !== 200) throw new \Exception("API responded with a HTTP status of {$response->code}.");
 
         return $response->body;
-        /*
-        if($response->code == 200){
-            return $response->body;
-        } else {
-            throw new \Exception("API responded with a HTTP status of {$response->code}.");
-        }*/
     }
 
     /**
@@ -303,15 +266,10 @@ class Yelp{
 
         $response = self::doRequest($uri, "", "get", $this->apiBearer, $this->apiToken);
 
-        if($response->code !== 200) throw new \Exception("API responded with a HTTP status of {$response->code}.");
+        if($response->code !== 200)
+            throw new \Exception("API responded with a HTTP status of {$response->code}.");
 
         return $response->body;
-        /*
-        if($response->code == 200){
-            return $response->body;
-        } else {
-            throw new \Exception("API responded with a HTTP status of {$response->code}.");
-        }*/
     }
 
     /**
@@ -324,28 +282,22 @@ class Yelp{
      */
     public function autoComplete($params)
     {
-        if(isset($params["text"]) && isset($params["latitude"]) && isset($params["longitude"])) {
-            // merge search parameter defaults with supplied options
-            $keyPairs       = $this->mergeParams($this->autoCompleteDefaults, $params);
-
-            // build querystring containing only populated key/value pairs
-            $queryString    = self::urlEncoded($keyPairs, false);
-
-            $uri            = self::$apiUri . "/v3/autocomplete?$queryString";
-            $response       = self::doRequest($uri, "", "get", $this->apiBearer, $this->apiToken);
-
-            if($response->code !== 200) throw new \Exception("API responded with a HTTP status of {$response->code}.");
-
-            return $response->body;
-            /*
-            if($response->code == 200){
-                return $response->body;
-            } else {
-                throw new \Exception("API responded with a HTTP status of {$response->code}.");
-            }*/
-        } else {
+        if(!isset($params["text"]) || !isset($params["latitude"]) || !isset($params["longitude"]))
             throw new \Exception("Text, Latitude and Longitude are required parameters.");
-        }
+
+        // merge search parameter defaults with supplied options
+        $keyPairs       = $this->mergeParams($this->autoCompleteDefaults, $params);
+
+        // build querystring containing only populated key/value pairs
+        $queryString    = self::urlEncoded($keyPairs, false);
+
+        $uri            = self::$apiUri . "/v3/autocomplete?$queryString";
+        $response       = self::doRequest($uri, "", "get", $this->apiBearer, $this->apiToken);
+
+        if($response->code !== 200)
+            throw new \Exception("API responded with a HTTP status of {$response->code}.");
+
+        return $response->body;
     }
 
     /**
