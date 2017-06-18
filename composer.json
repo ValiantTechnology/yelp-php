@@ -1,0 +1,22 @@
+{
+  "name": "thevaliantway/yelp-php",
+  "description": "PHP Client wrapper for Yelp's Fusion API",
+  "keywords": ["yelp", "api", "rest"],
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Matthew F. Fox",
+      "email": "mfox@thevaliantway.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.0",
+    "nategood/httpful": "^0.2.20"
+  },
+  "autoload": {
+    "psr-4": {
+      "TVW\\": "src/"
+    }
+  }
+}
