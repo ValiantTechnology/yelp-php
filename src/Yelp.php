@@ -69,18 +69,10 @@ class Yelp{
     ];
 
     /**
-     * Default business detail parameters
+     * Default business detail/review parameters
      * @var array
      */
     private $businessDefaults = [
-        "locale"        => ""
-    ];
-
-    /**
-     * Default business review parameters
-     * @var array
-     */
-    private $reviewDefaults = [
         "locale"        => ""
     ];
 
@@ -233,7 +225,7 @@ class Yelp{
 
         if(is_array($params)) {
             // merge search parameter defaults with supplied options
-            $keyPairs       = $this->mergeParams($this->reviewDefaults, $params);
+            $keyPairs       = $this->mergeParams($this->businessDefaults, $params);
             $queryString    = self::urlEncoded($keyPairs, false);
             $uri .= "?$queryString";
         }

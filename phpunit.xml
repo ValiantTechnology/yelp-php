@@ -4,10 +4,10 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
-    <!---->
+    <!--
     <php>
-        <env name="client_id" value="903XGskK28EgQ-CoMyXDYw"/>
-        <env name="client_secret" value="9YiZkTsFvXkUPRaVBQMqQpHMvky7V4szBSBBS2WSKkmZgxmq8gnBwFcUiMGwseI8"/>
+        <env name="client_id" value=""/>
+        <env name="client_secret" value=""/>
     </php>
-    <!---->
+    -->
 </phpunit>
