@@ -196,7 +196,6 @@ class Yelp{
      */
     public function searchTransaction($transactionType = "delivery", $params)
     {
-
         // merge search parameter defaults with supplied options
         if(!$params)
             throw new \Exception("Latitude and Longitude are required parameters.");
@@ -216,46 +215,21 @@ class Yelp{
     }
 
     /**
-     * Returns the detail information of a business by id.
+     * Returns the detail information or up to 3 reviews of a business by id.
      * Business ids may be retrieved by the business, phone and transaction searches.
      * @see https://www.yelp.com/developers/documentation/v3/business
-     *
-     * @param   string      $businessId         Valid Yelp business id
-     * @param   array       $params     Business detail parameters
-     * @return  object                  Httpful response object body
-     * @throws  \Exception              Contains HTTP error code returned by Httpful
-     */
-    public function getBusiness($businessId, $params = null)
-    {
-        $uri = self::$apiUri . "/v3/businesses/{$businessId}";
-
-        if(is_array($params)) {
-            // merge search parameter defaults with supplied options
-            $keyPairs       = $this->mergeParams($this->businessDefaults, $params);
-            $queryString    = self::urlEncoded($keyPairs, false);
-            $uri .= "?$queryString";
-        }
-
-        $response = self::doRequest($uri, "", "get", $this->apiBearer, $this->apiToken);
-
-        if($response->code !== 200) throw new \Exception("API responded with a HTTP status of {$response->code}.");
-
-        return $response->body;
-    }
-
-    /**
-     * Returns the up to three reviews of a business by id.
-     * Business ids may be retrieved by the business, phone and transaction searches.
      * @see https://www.yelp.com/developers/documentation/v3/business_reviews
      *
-     * @param   string      $businessId         Valid Yelp business id
-     * @param   array       $params     Business review parameters
-     * @return  object                  Httpful response object body
-     * @throws  \Exception              Contains HTTP error code returned by Httpful
+     * @param   string      $infoType       Determines response contents (details/review)s
+     * @param   string      $businessId     Valid Yelp business id
+     * @param   array       $params         Business review parameters
+     * @return  object                      Httpful response object body
+     * @throws  \Exception                  Contains HTTP error code returned by Httpful
      */
-    public function getReviews($businessId, $params = null)
+    public function getDetails($infoType = "details", $businessId, $params = null)
     {
-        $uri = self::$apiUri . "/v3/businesses/{$businessId}/reviews";
+        $uri = self::$apiUri . "/v3/businesses/{$businessId}";
+        if($infoType == "reviews") $uri .= "/reviews";
 
         if(is_array($params)) {
             // merge search parameter defaults with supplied options

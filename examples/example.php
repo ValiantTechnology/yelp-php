@@ -56,16 +56,16 @@ $result = $yelpFusion->searchBusiness($testParams);
 //$result = $yelpFusion->searchTransaction("delivery", $transactionParams);
 
 /**
- * getBusiness($id, $params = null)
+ * getDetails($infoType = "details", $businessId, $params = null)
  * Retrieves detailed business information
  */
-//$result = $yelpFusion->getBusiness("blue-hill-new-york");
+//$result = $yelpFusion->getDetails("details", blue-hill-new-york");
 
 /**
- * getReviews($id, $params = null)
+ * getDetails($infoType = "reviews", $businessId, $params = null)
  * Retrieves up to 3 business reviews
  */
-//$result = $yelpFusion->getReviews("blue-hill-new-york");
+//$result = $yelpFusion->getDetails("reviews", "blue-hill-new-york");
 
 /**
  * autoComplete($params)

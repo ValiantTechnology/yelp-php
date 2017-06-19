@@ -88,11 +88,13 @@ class YelpTest extends PHPUnit_Framework_TestCase
         $results = $yelpFusion->searchBusiness($testParams);
     }
 
+
     /**
      * Asserts returned object has a 'businesses' attribute
      * @depends testAuth
      * @param array $stack
      */
+
     public function testPhoneSearch(array $stack){
         $yelpFusion = new \TVW\Yelp($stack["client_token"]);
         $result = $yelpFusion->searchPhone("+12127527470");
@@ -138,14 +140,14 @@ class YelpTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Asserts returned object has a 'id' attribute
+     * Asserts returned Business details object has an 'id' attribute
      * @depends testAuth
      * @param array $stack
      */
-    public function testBusiness(array $stack){
+    public function testBusinessDetails(array $stack){
         $yelpFusion = new \TVW\Yelp($stack["client_token"]);
-        $result = $yelpFusion->getBusiness("blue-hill-new-york");
-        $this->assertObjectHasAttribute('id', $result);
+        $result = $yelpFusion->getDetails("details","blue-hill-new-york");
+        $this->assertObjectHasAttribute("id", $result);
     }
 
     /**
@@ -153,21 +155,21 @@ class YelpTest extends PHPUnit_Framework_TestCase
      * @depends testAuth
      * @param array $stack
      */
-    public function testBusinessException(array $stack){
+    public function testBusinessDetailsException(array $stack){
         $this->expectException(Exception::Class);
         $yelpFusion = new \TVW\Yelp($stack["client_token"]);
-        $result = $yelpFusion->getBusiness("invalid-business-id");
+        $result = $yelpFusion->getDetails("details","invalid-business-id");
     }
 
     /**
-     * Asserts returned object has a 'reviews' attribute
+     * Asserts returned Business reviews object has a 'reviews' attribute
      * @depends testAuth
      * @param array $stack
      */
     public function testBusinessReviews(array $stack){
         $yelpFusion = new \TVW\Yelp($stack["client_token"]);
-        $result = $yelpFusion->getReviews("blue-hill-new-york");
-        $this->assertObjectHasAttribute('reviews', $result);
+        $result = $yelpFusion->getDetails("reviews","blue-hill-new-york");
+        $this->assertObjectHasAttribute("reviews", $result);
     }
 
     /**
@@ -178,7 +180,7 @@ class YelpTest extends PHPUnit_Framework_TestCase
     public function testBusinessReviewsException(array $stack){
         $this->expectException(Exception::Class);
         $yelpFusion = new \TVW\Yelp($stack["client_token"]);
-        $result = $yelpFusion->getReviews("invalid-business-id");
+        $result = $yelpFusion->getDetails("reviews","invalid-business-id");
     }
 
     /**

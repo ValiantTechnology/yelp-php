@@ -99,24 +99,23 @@ $results    = $yelpFusion->autoComplete($autoCompleteParams);
 ```
 Detail on the API's response may be found at [https://www.yelp.com/developers/documentation/v3/autocomplete](https://www.yelp.com/developers/documentation/v3/autocomplete)
 
-## Business Information
-Returns the detail information of a business. A valid business id is required, and may be obtained via the business, phone, transaction, or autocomplete searches.
+## Business Details and Reviews
+Returns the detailed information or up to 3 reviews of a business. A valid business id is required, and may be obtained via the business, phone, transaction, or autocomplete searches.
 
-The following example will query the API for information on Blue Hill:
+The following example will query the API for detailed information on Blue Hill:
 ```
 $yelpFusion = new Yelp(API_TOKEN);
-$result     = $yelpFusion->getBusiness("blue-hill-new-york");
+$result     = $yelpFusion->getDetails("details", blue-hill-new-york");
 ```
-Detail on the API's response may be found at [https://www.yelp.com/developers/documentation/v3/business](https://www.yelp.com/developers/documentation/v3/business)
-
-## Business Reviews
-Returns the up to three reviews of a business. A valid business id is required, and may be obtained via the business, phone, transaction, or autocomplete searches.
-
 The following example will query the API for reviews on Blue Hill:
 ```
 $yelpFusion = new Yelp(API_TOKEN);
-$result     = $yelpFusion->getReviews("blue-hill-new-york");
+$result     = $yelpFusion->getDetails("reviews", blue-hill-new-york");
 ```
+Detail on the API's responses may be found at
+
+- [https://www.yelp.com/developers/documentation/v3/business](https://www.yelp.com/developers/documentation/v3/business)
+- [https://www.yelp.com/developers/documentation/v3/business_reviews](https://www.yelp.com/developers/documentation/v3/business_reviews)
 
 ## Support
 Please [open an issue](https://github.com/fraction/readme-boilerplate/issues/new) for support.
