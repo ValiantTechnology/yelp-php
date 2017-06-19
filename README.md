@@ -4,6 +4,7 @@ _A PHP Client wrapper for Yelp's Fusion API_
 [![Build Status](https://travis-ci.org/ValiantTechnology/yelp-php.svg?branch=master)](https://travis-ci.org/ValiantTechnology/yelp-php)
 [![Packagist](https://img.shields.io/packagist/v/thevaliantway/yelp-php.svg)](https://packagist.org/packages/thevaliantway/yelp-php)
 [![GitHub release](https://img.shields.io/github/release/valianttechnology/yelp-php.svg)](https://github.com/ValiantTechnology/yelp-php)
+[![Code Climate](https://img.shields.io/codeclimate/github/ValiantTechnology/yelp-php.svg)](https://github.com/ValiantTechnology/yelp-php)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![The Valiant Way](https://img.shields.io/badge/the%20valiant-way-orange.svg)](http://thevaliantway.com)
 [![Twitter Follow](https://img.shields.io/twitter/follow/thevaliantway.svg?style=social&label=Follow)](https://twitter.com/thevaliantway)
