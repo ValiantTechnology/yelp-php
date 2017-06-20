@@ -4,5 +4,6 @@ php:
   - '7.0'
   - 'hhvm'
 install: composer install
+dist: trusty
 script:
   - vendor/bin/phpunit --configuration phpunit.xml
