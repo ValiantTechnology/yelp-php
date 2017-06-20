@@ -2,9 +2,9 @@
 _A PHP Client wrapper for Yelp's Fusion API_
 
 [![Build Status](https://travis-ci.org/ValiantTechnology/yelp-php.svg?branch=master)](https://travis-ci.org/ValiantTechnology/yelp-php)
-[![Packagist](https://img.shields.io/packagist/v/thevaliantway/yelp-php.svg)](https://packagist.org/packages/thevaliantway/yelp-php)
 [![GitHub release](https://img.shields.io/github/release/valianttechnology/yelp-php.svg)](https://github.com/ValiantTechnology/yelp-php/releases)
 [![Code Climate](https://img.shields.io/codeclimate/github/ValiantTechnology/yelp-php.svg)](https://codeclimate.com/github/ValiantTechnology/yelp-php)
+[![Packagist](https://img.shields.io/packagist/v/thevaliantway/yelp-php.svg)](https://packagist.org/packages/thevaliantway/yelp-php)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![The Valiant Way](https://img.shields.io/badge/the%20valiant-way-orange.svg)](http://thevaliantway.com)
 [![Twitter Follow](https://img.shields.io/twitter/follow/thevaliantway.svg?style=social&label=Follow)](https://twitter.com/thevaliantway)
@@ -23,10 +23,10 @@ Require this package with composer using the following command:
 Yelp's Fusion API uses OAuth2 for Authentication. Use the `bearerRequest()` method to retrieve an access token.
 ```
 $id        = YELP_ID
-$secret    = YELP SECRET
+$secret    = YELP_SECRET
 $yelpCreds = TVW\Yelp::bearerRequest($id, $secret);
 ```
-On success, the method will return an array containing the following:
+On success, the method will return an object containing the following:
 
 |Name          |Type    |Description                                                                                                                    |
 |:------------ |:-------|:------------------------------------------------------------------------------------------------------------------------------|
@@ -41,7 +41,7 @@ Once a valid token has been issued, you'll be able to work with the methods belo
 ## Business Search
 Returns up to 1000 businesses based on the provided search criteria. Each API call is limited to a maximum of 50 results, so use the `offset` parameter to access results beyond the initial 50 returned.
 
-The following example will query the API for the 5 closest restuarants within 500 meters of zip code 10001.
+The following example will query the API for the 5 closest restaurants within 500 meters of zip code 10001, sorted by distance.
 ```
 // parameters for testing
 $searchParams = [
@@ -54,7 +54,7 @@ $searchParams = [
 $yelpFusion = new Yelp(API_TOKEN);
 $results    = $yelpFusion->searchBusiness($testParams);
 ```
-You can use the id returned for a business with the `getBusiness()` method to retrieve detailled information.
+You can use the id returned for a business with the `getBusiness()` method to retrieve detailed information.
 
 Additional search parameters, along with detail on the API's response, may be found at [https://www.yelp.com/developers/documentation/v3/business_search](https://www.yelp.com/developers/documentation/v3/business_search)
 
