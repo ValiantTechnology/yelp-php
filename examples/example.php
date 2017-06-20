@@ -34,7 +34,7 @@ $autoCompleteParams = [
     "longitude"     => "-73.935242"
 ];
 
-// create instance of Yelp class
+// create instance of Yelp-PHP class
 $yelpFusion = new Yelp($apiToken);
 
 /**
