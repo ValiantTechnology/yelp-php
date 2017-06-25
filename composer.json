@@ -4,14 +4,16 @@
   "keywords": ["yelp", "api", "rest"],
   "minimum-stability": "stable",
   "license": "MIT",
+  "version": "1.0.1",
   "authors": [
     {
       "name": "Matthew F. Fox",
-      "email": "mfox@thevaliantway.com"
+      "email": "mfox@thevaliantway.com",
+      "homepage": "http://thevaliantway.com"
     }
   ],
   "require": {
-    "php": ">=5.3.0",
+    "php": ">=5.6.0",
     "nategood/httpful": "^0.2.20"
   },
   "require-dev": {

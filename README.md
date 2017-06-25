@@ -7,6 +7,7 @@ _A PHP Client wrapper for Yelp's Fusion API_
 [![Packagist](https://img.shields.io/packagist/v/thevaliantway/yelp-php.svg)](https://packagist.org/packages/thevaliantway/yelp-php)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![The Valiant Way](https://img.shields.io/badge/the%20valiant-way-orange.svg)](http://thevaliantway.com)
+[![StyleCI](https://styleci.io/repos/94714155/shield?branch=master)](https://styleci.io/repos/94714155)
 [![Twitter Follow](https://img.shields.io/twitter/follow/thevaliantway.svg?style=social&label=Follow)](https://twitter.com/thevaliantway)
 
 Yelp's [Fusion API](https://www.yelp.com/developers/documentation/v3) allows you to get the best local business information and user reviews of over million businesses in 32 countries. 
