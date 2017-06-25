@@ -140,6 +140,7 @@ class Yelp
         if ($response->code !== 200) {
             throw new \Exception("API responded with a HTTP status of {$response->code}.");
         }
+
         return $response->body;
     }
 
@@ -170,6 +171,7 @@ class Yelp
         if ($response->code !== 200) {
             throw new \Exception("API responded with a HTTP status of {$response->code}.");
         }
+
         return $response->body;
     }
 
@@ -197,6 +199,7 @@ class Yelp
         if ($response->code !== 200) {
             throw new \Exception("API responded with a HTTP status of {$response->code}.");
         }
+
         return $response->body;
     }
 
@@ -229,6 +232,7 @@ class Yelp
         if ($response->code !== 200) {
             throw new \Exception("API responded with a HTTP status of {$response->code}.");
         }
+
         return $response->body;
     }
 
@@ -266,6 +270,7 @@ class Yelp
         if ($response->code !== 200) {
             throw new \Exception("API responded with a HTTP status of {$response->code}.");
         }
+
         return $response->body;
     }
 
@@ -297,6 +302,7 @@ class Yelp
         if ($response->code !== 200) {
             throw new \Exception("API responded with a HTTP status of {$response->code}.");
         }
+
         return $response->body;
     }
 
