@@ -4,10 +4,12 @@
   "keywords": ["yelp", "api", "rest"],
   "minimum-stability": "stable",
   "license": "MIT",
+  "version": "1.0.1",
   "authors": [
     {
       "name": "Matthew F. Fox",
-      "email": "mfox@thevaliantway.com"
+      "email": "mfox@thevaliantway.com",
+      "homepage": "http://thevaliantway.com"
     }
   ],
   "require": {
